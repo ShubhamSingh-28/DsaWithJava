@@ -3,15 +3,15 @@ public class Soting {
 
     public static void main(String[] args) {
         int arr[]={2,1,5,9,3,8,6};
-        InsertionSortIncresingOrder(arr);
+       BidiractionalSelectionSort(arr); 
         for (int i : arr) {
             System.out.print(i+",");
         }
-        System.out.println();
-        InsertionSortDecresingOrder(arr);
-        for (int i : arr) {
-            System.out.print(i+",");
-        }
+        // System.out.println();
+        // InsertionSortDecresingOrder(arr);
+        // for (int i : arr) {
+        //     System.out.print(i+",");
+        // }
     }
 
     public static void InsertionSortIncresingOrder(int arr[]){
@@ -38,4 +38,69 @@ public class Soting {
         }
     }
     
+
+    //1st approch
+
+    public static void SelectionSortIncreasingOrder(int arr[]){
+        for (int i = 0; i < arr.length-1; i++) {
+            int minEl = arr[i];
+            int minElIndex = i;
+            for (int j = i+1; j < arr.length; j++) {
+                if (minEl > arr[j]) {
+                    minEl= arr[j];
+                    minElIndex = j;
+                }
+            }
+            swap(arr,i,minElIndex);
+        }
+    }
+
+    public static void SelectionSortDecreasingOrder(int arr[]){
+        for (int i = 0; i < arr.length-1; i++) {
+            int minEl = arr[i];
+            int minElIndex = i;
+            for (int j = i+1; j < arr.length; j++) {
+                if (minEl < arr[j]) {
+                    minEl= arr[j];
+                    minElIndex = j;
+                }
+            }
+            swap(arr,i,minElIndex);
+        }
+    }
+
+    public static void swap(int arr[], int i, int j){
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    // 2nd aproach
+    public static void BidiractionalSelectionSort(int arr[]){
+        int k = arr.length-1;
+        for (int i = 0; i < k; i++) {
+            int minEl = arr[i];
+            int minElIndex = i;
+            int maxEl = arr[i];
+            int maxElIndex = i;
+            for (int j = i+1; j <= k; j++) {
+                if (minEl > arr[j]) {
+                    minEl= arr[j];
+                    minElIndex = j;
+                } else if (maxEl < arr[j]) {
+                    maxEl= arr[j];
+                    maxElIndex = j;
+                }
+            }
+            swap(arr,i, minElIndex);
+            if (maxEl == arr[minElIndex]) {
+                swap(arr,k, minElIndex);
+            } else {
+                swap(arr,k, maxElIndex);
+            }
+            k--;
+        }
+    }
+
+
 }
