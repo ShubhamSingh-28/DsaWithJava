@@ -3,7 +3,7 @@ public class Soting {
 
     public static void main(String[] args) {
         int arr[]={2,1,5,9,3,8,6};
-       BidiractionalSelectionSort(arr); 
+       BubbleSort(arr); 
         for (int i : arr) {
             System.out.print(i+",");
         }
@@ -101,6 +101,21 @@ public class Soting {
             k--;
         }
     }
+
+    public static void BubbleSort(int arr[]){
+        int n =arr.length;
+        int passes = n-2;
+
+        for (int i = 0; i <=passes ; i++) {
+             for (int j = 0; j <=passes-i; j++) {
+                if (arr[j]<arr[j+1]){   
+                    swap(arr,j,j+1);
+                }
+            }
+        }
+
+    }
+
 
 
 }
