@@ -3,7 +3,7 @@ public class Soting {
 
     public static void main(String[] args) {
         int arr[]={2,1,5,9,3,8,6};
-       BubbleSort(arr); 
+       BrickSort(arr); 
         for (int i : arr) {
             System.out.print(i+",");
         }
@@ -117,5 +117,34 @@ public class Soting {
     }
 
 
+    public static void BrickSort(int arr[]){
+        int n =arr.length;
+        boolean isSorted= false;
+        while (!isSorted) {
+            boolean flag = false;
+            // for even case
+            for (int i = 0; i <=n-2; i+=2) {
+                if (arr[i]>arr[i+1]) {
+                    swap(arr, i, i+1);
+                    flag = true;
+                }
+            }
+
+            //for odd case
+            for (int i = 1; i <=n-2; i+=2) {
+                if (arr[i]>arr[i+1]) {
+                    swap(arr, i, i+1);
+                    flag = true;
+                }
+            
+            }
+
+            if (!flag) {
+                isSorted=true;
+            }
+
+
+        }
+    }
 
 }
