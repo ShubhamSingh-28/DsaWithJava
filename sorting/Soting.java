@@ -3,8 +3,8 @@ public class Soting {
 
     public static void main(String[] args) {
         int arr[]={2,1,5,9,3,8,6};
-       BrickSort(arr); 
-        for (int i : arr) {
+      int res[]= CountingSort(arr); 
+        for (int i : res) {
             System.out.print(i+",");
         }
         // System.out.println();
@@ -145,6 +145,39 @@ public class Soting {
 
 
         }
+    }
+
+    public static int[] CountingSort(int arr[]){
+        int n = arr.length;
+        int res[]= new int[n];
+        int max= Integer.MIN_VALUE;
+        for (int i = 0; i < n; i++) {
+            if (arr[i]>max) {
+                max= arr[i];
+            }
+        }
+        if (max==Integer.MIN_VALUE) {
+            return res;
+        }
+        int count[]= new int[max+1];
+        // for finding frequancy
+        for (int i = 0; i < n; i++) {
+            int index = arr[i];
+            count[index]++;
+        }
+
+        for (int i = 1; i <=max; i++) {
+            count[i]+= count[i-1];
+        }
+
+        for (int i = n-1; i >=0; i--) {
+            int val = arr[i];
+            int countval = --count[val];
+            res[countval] = val;
+        }
+
+        return res;
+
     }
 
 }
