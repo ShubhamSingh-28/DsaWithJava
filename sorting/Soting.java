@@ -2,7 +2,8 @@
 public class Soting {
 
     public static void main(String[] args) {
-        int arr[]={2,1,5,9,3,8,6};
+        int arr[]={2,1,2,1,5,9,3,8,6};
+        
       int res[]= CountingSort(arr); 
         for (int i : res) {
             System.out.print(i+",");
