@@ -2,12 +2,16 @@
 public class Soting {
 
     public static void main(String[] args) {
-        int arr[]={2,1,2,1,5,9,3,8,6};
+
+        int arr [] = {0,1};
+        int n = missingNumber(arr);
+        System.out.println(n);
+    //     int arr[]={2,1,2,1,5,9,3,8,6};
         
-      int res[]= CountingSort(arr); 
-        for (int i : res) {
-            System.out.print(i+",");
-        }
+    //   int res[]= CountingSort(arr); 
+    //     for (int i : res) {
+    //         System.out.print(i+",");
+    //     }
         // System.out.println();
         // InsertionSortDecresingOrder(arr);
         // for (int i : arr) {
@@ -180,5 +184,20 @@ public class Soting {
         return res;
 
     }
+
+    public static int missingNumber(int[] nums) {
+        int n = nums.length;
+        int exceptedSum = n*(n+1)/2;
+        System.out.println(exceptedSum);
+        int actualSum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            actualSum+= nums[i];
+        }
+
+        int res = exceptedSum - actualSum;
+        return res;
+    }
+
+
 
 }
