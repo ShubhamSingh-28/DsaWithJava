@@ -3,15 +3,15 @@ public class Soting {
 
     public static void main(String[] args) {
 
-        int arr [] = {0,1};
-        int n = missingNumber(arr);
-        System.out.println(n);
-    //     int arr[]={2,1,2,1,5,9,3,8,6};
+        // int arr [] = {0,1};
+        // int n = missingNumber(arr);
+        // System.out.println(n);
+        int arr[]={2,1,5,4,9,0,7,3,8,6};
         
-    //   int res[]= CountingSort(arr); 
-    //     for (int i : res) {
-    //         System.out.print(i+",");
-    //     }
+      cyclicSort(arr); 
+        for (int i : arr) {
+            System.out.print(i+",");
+        }
         // System.out.println();
         // InsertionSortDecresingOrder(arr);
         // for (int i : arr) {
@@ -197,7 +197,79 @@ public class Soting {
         int res = exceptedSum - actualSum;
         return res;
     }
+// 1 to n 
 
+    public static void cycleSort (int arr[]){
+        int n = arr.length;
+        int index = 0;
+        while (index < n) {
+            int element = arr[index];
+            int actualpos = element-1;
+            if (arr[index]<n && arr[index] != arr[actualpos]) {
+                swap(arr, index, actualpos);
+            } else{
+                index++;
+            }
+        }
+    }
+
+    // 0 to n
+
+    public static void cycleSort0TON (int arr[]){
+        int n = arr.length;
+        int index = 0;
+        while (index < n) {
+            int element = arr[index];
+            int actualpos = element;
+            if (arr[index]<n && arr[index] != arr[actualpos]) {
+                swap(arr, index, actualpos);
+            } else{
+                index++;
+            }
+        }
+    }
+
+    public static void cyclicSort (int arr[]){
+        int n = arr.length;
+       for (int i = 0; i < n-1; i++) {
+        int pos =i;
+        int item = arr[i];
+         for (int j = i+1; j < arr.length; j++) {
+            if (arr[j] < item) {
+                pos++;
+            }
+         }
+         if (pos == i) {
+            continue;
+         }
+         while (arr[pos]== item) {
+            pos++;
+         }
+         if (pos!=i) {  
+          int temp =arr[pos];
+          arr[pos] = item;
+          item = temp;
+         }
+
+         while (pos!=i) {
+             pos = i;
+             for (int j= i+1;  j< arr.length; j++) {
+                if (arr[j]<item) {
+                    pos++;
+                }
+             }
+             while (arr[pos]== item) {
+                pos++;
+             }
+
+             if (item!=arr[pos]) {
+                int temp =arr[pos];
+          arr[pos] = item;
+          item = temp;
+             }
+         }
+       }
+    }
 
 
 }
