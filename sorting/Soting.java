@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class Soting {
 
@@ -6,9 +8,17 @@ public class Soting {
         // int arr [] = {0,1};
         // int n = missingNumber(arr);
         // System.out.println(n);
-        int arr[]={2,1,5,4,9,0,7,3,8,6};
+        int arr[]={4,3,2,7,8,2,3,1};
+        cycleSort(arr);
+         List<Integer> list = new ArrayList<Integer>();
+        for(int i = 0; i <arr.length;i++){
+            if(arr[i]!=i+1){
+                list.add(arr[i]);
+            }
+        }
+
         
-      cyclicSort(arr); 
+    //   cyclicSort(arr); 
         for (int i : arr) {
             System.out.print(i+",");
         }
