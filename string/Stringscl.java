@@ -17,16 +17,18 @@ public class Stringscl {
     //   System.out.printf("Number is %.2f", num);
     //PrintAllSubstring("abc");
    //PrintAllSubstring("abcde");
-   boolean af =isAnagram("abcd", "dcba");
-System.out.println(af);
+//    boolean af =isAnagram("abcd", "dcba");
+// System.out.println(af);
 
 //    String inp = "ABCDE";
 //  reverseString(inp);
       
-     palindome("mAdam");
-     boolean a = palindome2("mAdam");
-     System.out.println(a);
+    //  palindome("mAdam");
+    //  boolean a = palindome2("mAdam");
+    //  System.out.println(a);
 
+    String ab = reverseWords3("Let's take LeetCode contest");
+    System.out.println(ab);
 
     }
 
@@ -146,6 +148,32 @@ System.out.println(af);
             index2++;
         }
         return true;
+    }
+
+
+    public static String reverseWords3(String s) {
+        StringBuilder sb = new StringBuilder(s);
+        int len = sb.length();
+        int start = 0;
+        for(int end = 0; end <=len; end++){
+            // word will end at space or at end of string
+            if(end == len || sb.charAt(end)==' '){
+                reverse(sb, start, end-1);
+                start = end+1;
+            }
+        }
+        return sb.toString();
+        
+    }
+   
+    public static void reverse (StringBuilder sb,int start, int end){
+        while(start<end){
+            char temp = sb.charAt(start);
+            sb.setCharAt(start, sb.charAt(end));
+            sb.setCharAt(end, temp);
+            start++;
+            end--;
+        }
     }
 
 
