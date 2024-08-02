@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class Stringscl {
     public static void main(String[] args) {
@@ -16,6 +17,8 @@ public class Stringscl {
     //   System.out.printf("Number is %.2f", num);
     //PrintAllSubstring("abc");
    //PrintAllSubstring("abcde");
+   boolean af =isAnagram("abcd", "dcba");
+System.out.println(af);
 
 //    String inp = "ABCDE";
 //  reverseString(inp);
@@ -121,6 +124,28 @@ public class Stringscl {
         }
         }
         return res;
+    }
+
+     public static boolean isAnagram(String a, String b){
+        if (a.length()!=b.length()) {
+            return false;
+        }
+        char arr1[]= a.toCharArray();
+        char arr2[]= b.toCharArray();
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+        int index1 = 0;
+        int index2 = 0;
+        int len = arr1.length;
+
+        while (index1<len && index2 <len) {
+            if (arr1[index1]!= arr2[index2]) {
+                return false;
+            }
+            index1++;
+            index2++;
+        }
+        return true;
     }
 
 
