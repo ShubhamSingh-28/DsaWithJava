@@ -17,7 +17,7 @@ public class Stringscl {
     //   System.out.printf("Number is %.2f", num);
     //PrintAllSubstring("abc");
    //PrintAllSubstring("abcde");
-//    boolean af =isAnagram("abcd", "dcba");
+//    boolean af =isAnagram("rat", "car");
 // System.out.println(af);
 
 //    String inp = "ABCDE";
@@ -27,7 +27,7 @@ public class Stringscl {
     //  boolean a = palindome2("mAdam");
     //  System.out.println(a);
 
-    String ab = reverseWords3("Let's take LeetCode contest");
+    String ab = reverseVowels("hello");
     System.out.println(ab);
 
     }
@@ -176,5 +176,48 @@ public class Stringscl {
         }
     }
 
+
+    public static String reverseStr(String s, int k) {
+        char arr[]= s.toCharArray();
+        int n = arr.length;
+        for(int i=0; i<n-1; i+=2*k){
+            int b=Math.min(i+k-1, s.length()-1);
+               reverse4(arr, i, b);
+
+        }
+        return new String(arr);
+    }
+
+    public static void reverse4(char[] arr, int start, int end){
+        while(start<end){
+            char temp = arr[start];
+            arr[start] = arr[end];
+            arr[end]= temp;
+            start++;
+            end--;
+        }
+    }
+
+    public static String reverseVowels(String s) {
+        char arr []= s.toCharArray();
+        int start = 0, end = s.length()-1;
+        String vowels = "aeiouAEIOU";
+        while (start<end) {
+          while (start < end && vowels.indexOf(arr[start])==-1) {
+            start++;
+          }
+
+          while (start < end && vowels.indexOf(arr[end])==-1) {
+            end--;
+          }
+          
+            char temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+        return new String(arr);
+    }
 
 }
