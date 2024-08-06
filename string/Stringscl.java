@@ -1,4 +1,4 @@
-import java.util.Arrays;
+//import java.util.Arrays;
 
 public class Stringscl {
     public static void main(String[] args) {
@@ -134,8 +134,8 @@ public class Stringscl {
         }
         char arr1[]= a.toCharArray();
         char arr2[]= b.toCharArray();
-        Arrays.sort(arr1);
-        Arrays.sort(arr2);
+        // Arrays.sort(arr1);
+        // Arrays.sort(arr2);
         int index1 = 0;
         int index2 = 0;
         int len = arr1.length;
