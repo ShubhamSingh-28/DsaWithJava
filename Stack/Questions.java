@@ -126,6 +126,25 @@ public class Questions{
         return result;
     }
 
+    public static int[] nextSmallestElement(int[]arr,int n){
+        Stack<Integer> stack = new Stack<>();
+        int[] result = new int[n];
+        for (int i = n-1; i >=0 ; i--) {
+            while (!stack.isEmpty() && stack.peek()>=arr[i]) {
+                stack.pop();
+            }
+            if (stack.isEmpty() ) {
+                result[i]=-1;
+            } else {
+                result[i]=stack.peek();
+            }
+            stack.push(arr[i]);
+        }
+        return result;
+    }
+
+
+
 public static int[] findNextGreaterElements(int[] arr) {
         int n = arr.length;
         int[] result = new int[n];
