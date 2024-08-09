@@ -4,6 +4,15 @@ public class Stringscl {
     public static void main(String[] args) {
     //     String email = "adfddfgh@gmail.com";
     //     String email2 = "adfddfghjghj@gmail23.com";
+    String s = "abcd", t = "abcde";
+    int n = s.length();
+    int sum = t.charAt(n);
+    for (int i = 0; i < s.length(); i++) {
+        sum+= t.charAt(i)-s.charAt(i);
+
+    }
+    System.out.println((char)sum);
+
 
     //     String arrString []= email.split("@");
     //     String last = arrString[arrString.length-1];
@@ -27,8 +36,8 @@ public class Stringscl {
     //  boolean a = palindome2("mAdam");
     //  System.out.println(a);
 
-    String ab = reverseVowels("hello");
-    System.out.println(ab);
+    //String ab = reverseVowels("hello");
+    // System.out.println(ab);
 
     }
 

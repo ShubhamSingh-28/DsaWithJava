@@ -1,10 +1,16 @@
+import java.util.Arrays;
 import java.util.Stack;
 
 public class Questions{
     public static void main(String[] args) {
         // boolean  a = validparanthisis("{{}{{}}");
-        int  a = minSwaps("[]]]][][[[[]");
-        System.out.println(a);
+        // int  a = minSwaps("[]]]][][[[[]");
+        // System.out.println(a);
+
+        long[] arr = {1,3,2,4}; // Example array
+        long[] result = nextGreaterElement(arr,4);
+        System.out.println(Arrays.toString(result)); 
+       
     }
 
     public static boolean validparanthisis(String s){
@@ -101,4 +107,41 @@ public class Questions{
         }
         return swap;
     }
+
+
+    public static long[] nextGreaterElement(long[]arr,int n){
+        Stack<Long> stack = new Stack<>();
+        long[] result = new long[n];
+        for (int i = n-1; i >=0 ; i--) {
+            while (!stack.isEmpty() && stack.peek()<=arr[i]) {
+                stack.pop();
+            }
+            if (stack.isEmpty() ) {
+                result[i]=-1;
+            } else {
+                result[i]=stack.peek();
+            }
+            stack.push(arr[i]);
+        }
+        return result;
+    }
+
+public static int[] findNextGreaterElements(int[] arr) {
+        int n = arr.length;
+        int[] result = new int[n];
+        Arrays.fill(result, -1); // Initialize result array with -1
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] > arr[i]) {
+                    result[i] = arr[j];
+                    break; // Found the next greater element
+                }
+            }
+        }
+
+        return result;
+    }
+
+
 }
